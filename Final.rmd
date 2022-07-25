@@ -76,7 +76,7 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
-
+The fisher exact test is showing us that the participants that took the placebo is almost 2 times more likely to catch covid rather than the people who had the vaccine. With such a low P-value it means we cannot recreate this experiment with the vaccine and placebo being the same, and getting the results we have just observed. 
 
 ## Females
 
