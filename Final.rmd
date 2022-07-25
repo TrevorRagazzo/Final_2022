@@ -58,6 +58,9 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
   
+ In this first graph we see it showing us that half of the participants took the covid 19 vacine and the other half took a placebo. With this information we get a result of 70% of the people that took the placebo got covid while 30% people with the vaccine got covid. We saw a greater result of people with covid that did not get the vaccine. 
+  
+  
 ```{r}
 table1 <- xtabs(~infected + treatment, data=Males)
 rowPerc(table1)
