@@ -67,6 +67,9 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+This numerical table shows us a result of the people who took the placebo and got covid was 2.63% and the people with the vaccine was about 1.28%. Which is showing the vaccine to be effective. 
+
+
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
