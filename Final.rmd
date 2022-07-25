@@ -104,6 +104,8 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
+This bar chart is showing us results of females that took a covid vaccine and those who took a placebo. With this information we get results of 60% of the people that took the placebo got covid, while the people with the vaccine only 40% got covid. 
+
   
 ```{r}
 table1 <- xtabs(~infected + treatment, data=Females)
