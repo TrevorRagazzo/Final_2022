@@ -107,20 +107,15 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 This bar chart is showing us results of females that took a covid vaccine and those who took a placebo. With this information we get results of 60% of the people that took the placebo got covid, while the people with the vaccine only 40% got covid. 
 
   
-```{r}
-table1 <- xtabs(~infected + treatment, data=Females)
-rowPerc(table1)
-colPerc(table1)
-```
-
-From the numerical results we see that around 2.3% of the people who received the placebo actually got covid. While the people who received the covid vacine only 1.62% got covid. We see that the vacine seem to be working, almost 2 times better than the placebo.
-
 
 ```{r}
 table2 <- xtabs(~infected + treatment, data=Females)
 rowPerc(table2)
 colPerc(table2)
 ```
+
+From the numerical results we see that around 2.3% of the people who received the placebo actually got covid. While the people who received the covid vaccine only 1.62% got covid. We see that the vacine seem to be working, almost 2 times better than the placebo.
+
 
 ```{r}
 chisq.test(table2)
