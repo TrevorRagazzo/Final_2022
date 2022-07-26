@@ -113,6 +113,9 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
+From the numerical results we see that around 2.3% of the people who received the placebo actually got covid. While the people who received the covid vacine only 1.62% got covid. We see that the vacine seem to be working, almost 2 times better than the placebo.
+
+
 ```{r}
 table2 <- xtabs(~infected + treatment, data=Females)
 rowPerc(table2)
