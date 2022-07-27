@@ -73,10 +73,27 @@ This numerical table shows us a result of the people who took the placebo and go
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
-fisher.test(table1)
+fishtestm=fisher.test(table1)
+print(fishtestm)
 ```
 
 The fisher exact test is showing us that the participants that took the placebo is almost 2 times more likely to catch covid rather than the people who had the vaccine. With such a low P-value it means we cannot recreate this experiment with the vaccine and placebo being the same, and getting the results we have just observed. 
+
+
+
+```{r}
+options(digits=1)
+maleffic=fishtestm$estimate/(1 + fishtestm$estimate)*100
+malefficlo=fishtestm$conf.int[1]/(1+fishtestm$conf.int[1])*100
+maleffichi=fishtestm$conf.int[2]/(1+fishtestm$conf.int[2])*100
+print(maleffic)
+print(malefficlo)
+print(maleffichi)
+```
+
+we see the confidence interval to be `r maleffichi` and the lower to be `r malefficlo`
+
+
 
 ## Females
 
@@ -120,10 +137,25 @@ From the numerical results we see that around 2.3% of the people who received th
 ```{r}
 chisq.test(table2)
 chisqtestGC(table2)
-fisher.test(table2)
+fishtestf=fisher.test(table2)
+fishtestf
 ```
 
 From this test we see that if you have taken the placebo you are 1.42 times more likely to get covid compare to the people that took the covid vaccine. We also notice a low P-Value, this means we would not gte the same results in this test if the placebo and vaccine were the same
+
+
+```{r}
+options(digits=1)
+femeffic=fishtestf$estimate/(1 + fishtestf$estimate)*100
+femefficlo=fishtestf$conf.int[1]/(1+fishtestf$conf.int[1])*100
+femeffichi=fishtestf$conf.int[2]/(1+fishtestf$conf.int[2])*100
+print(femeffic)
+print(femefficlo)
+print(femeffichi)
+```
+
+
+
 
 ## LGBTQ
 
