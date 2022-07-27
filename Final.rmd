@@ -196,6 +196,17 @@ fishtestL
 
 We see the odd ration to be .1 this tells us that people who take the placebo has a .1% of catching covid. 
 
+```{r}
+options(digits=1)
+Lemeffic=fishtestL$estimate/(1 + fishtestL$estimate)*100
+Lemefficlo=fishtestL$conf.int[1]/(1+fishtestL$conf.int[1])*100
+Lemeffichi=fishtestL$conf.int[2]/(1+fishtestL$conf.int[2])*100
+print(Lemeffic)
+print(Lemefficlo)
+print(Lemeffichi)
+```
+
+This efficiency ratio of 13 means the vaccine was only 13% efficient. The confidence ratio for the vaccine shows to be `r Lemefficlo` and the high end will be `r Lemeffichi`
 
 
 
