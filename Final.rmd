@@ -177,7 +177,15 @@ basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment))
 basicCC + geom_bar(stat="identity", position = "dodge")
 ```
 
-From this bar chart we see results of the members of the LGBTQ that recieved the vaccine actually got higher rates of covid. 85% of LGBTQ that took the vaccine got covid, seems like placebo might of had a better effect. 
+From this bar chart we see results of the members of the LGBTQ that received the vaccine actually got higher rates of covid. 85% of LGBTQ that took the vaccine got covid, seems like placebo might of had a better effect. 
+
+```{r}
+table3 <- xtabs(~infected + treatment, data=LGBTQ)
+rowPerc(table3)
+colPerc(table3)
+```
+
+From the numerical summaries we see that about 3% of LGBTQ that had the vaccine got covid, while the ones who took the placebo was only about .05%. 
 
 
 ## Druggies
