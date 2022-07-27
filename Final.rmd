@@ -187,6 +187,17 @@ colPerc(table3)
 
 From the numerical summaries we see that about 3% of LGBTQ that had the vaccine got covid, while the ones who took the placebo was only about .05%. 
 
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+fishtestL=fisher.test(table3)
+fishtestL
+```
+
+We see the odd ration to be .1 this tells us that people who take the placebo has a .1% of catching covid. 
+
+
+
 
 ## Druggies
 
