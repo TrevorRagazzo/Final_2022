@@ -22,9 +22,6 @@ mutate(across(where(is.character), as.factor))
 
 
 
-```{r}
-FinalDat = read.csv(file="final_Data.csv")
-```
 
 
 ```{r}
@@ -159,6 +156,28 @@ print(femeffichi)
 
 ## LGBTQ
 
+
+
+```{r}
+LGBTQ = filter(FinalData, LGBTQ == "gay")
+```
+
+```{r}
+dd2 <- LGBTQ %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+From this bar chart we see results of the members of the LGBTQ that recieved the vaccine actually got higher rates of covid. 85% of LGBTQ that took the vaccine got covid, seems like placebo might of had a better effect. 
 
 
 ## Druggies
