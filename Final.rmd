@@ -215,8 +215,29 @@ This efficiency ratio of 13 means the vaccine was only 13% efficient. The confid
 
 
 ```{r}
-LGBTQ = filter(FinalData, LGBTQ == "gay")
+DrugUser = filter(FinalData, DrugUser == "yes")
 ```
+
+## DrugUser Graphical Description
+
+```{r}
+dd2 <- DrugUser %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+# the group_by followed by summarize(count=n())
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+This barchart is showing results that the drugusers that took the vaccine was more likely to get covid rather than taking the placebo. About 85% of drug users that took the vaccine got covid and the people that ook the placebo was only 15% likely. 
+
+
 
 
 
