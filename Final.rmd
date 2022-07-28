@@ -248,3 +248,19 @@ colPerc(table4)
 From the numerical results we see that 3% of drugusers that took the vaccin got covid. While only .6 % of drugusers that took the placebo got covid. From these results we see that with the vaccine you are more than 3 times more likely to get covid. 
 
 
+
+## DrugUser Inferential Results
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+fishtestD=fisher.test(table4)
+fishtestD
+```
+
+We see from the Inferential Results that the drugusers that took the placebo were about .2 times less likely to get covid rather than the drugusers that took the vaccine. With this low P-Value we can determine that the placebo and the vaccine are indeed different and we couldnt get these results if they were the same. 
+
+
+
+
+
