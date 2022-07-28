@@ -58,6 +58,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
   
  In this first graph we see it showing us that half of the participants took the covid 19 vacine and the other half took a placebo. With this information we get a result of 70% of the people that took the placebo got covid while 30% people with the vaccine got covid. We saw a greater result of people with covid that did not get the vaccine. 
   
+## Males Numerical Results
   
 ```{r}
 table1 <- xtabs(~infected + treatment, data=Males)
@@ -79,7 +80,7 @@ print(fishtestm)
 
 The fisher exact test is showing us that the participants that took the placebo is almost 2 times more likely to catch covid rather than the people who had the vaccine. With such a low P-value it means we cannot recreate this experiment with the vaccine and placebo being the same, and getting the results we have just observed. 
 
-
+## Males Efficiency
 
 ```{r}
 options(digits=1)
@@ -126,7 +127,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This bar chart is showing us results of females that took a covid vaccine and those who took a placebo. With this information we get results of 60% of the people that took the placebo got covid, while the people with the vaccine only 40% got covid. 
 
-  
+## Females Numerical Results
 
 ```{r}
 table2 <- xtabs(~infected + treatment, data=Females)
@@ -147,6 +148,9 @@ fishtestf
 ```
 
 From this test we see that if you have taken the placebo you are 1.42 times more likely to get covid compare to the people that took the covid vaccine. We also notice a low P-Value, this means we would not gte the same results in this test if the placebo and vaccine were the same
+
+
+## Females Efficiency
 
 
 ```{r}
@@ -191,6 +195,9 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 From this bar chart we see results of the members of the LGBTQ that received the vaccine actually got higher rates of covid. 85% of LGBTQ that took the vaccine got covid, seems like placebo might of had a better effect. 
 
+
+## LGBTQ Numerical Results
+
 ```{r}
 table3 <- xtabs(~infected + treatment, data=LGBTQ)
 rowPerc(table3)
@@ -210,6 +217,9 @@ fishtestL
 ```
 
 We see the odd ration to be .1 this tells us that people who take the placebo has a .1% of catching covid. 
+
+## LGBTQ Efficiency
+
 
 ```{r}
 options(digits=1)
@@ -287,6 +297,17 @@ print(Deffichi)
 ```
 
 From the Efficiency we see that the vaccine is 15% effective. We see a confidence interval high of `r Deffichi` and a low of `r Defficlo`
+
+
+## Conclusion
+
+For the Covid19 vaccine for males was very effective. We can see those results of the vaccine by `r maleffic` this being the highest percentage in compared to Females, LGBTQ, and DrugUsers. We can also see similar results when compared to females by the vaccine was also very effective compared to the placebo. The female results are `r femeffic` effectiveness. Now if we compare the LGBTQ, the vaccine was not effective at all, we eventually saw better results from the placebo than we did the vaccine. The effectiveness we saw from the LQBTQ vaccinated people were `r leffic`, and this was the lowest performance from any group. We also see bad results in relation with DrugUsers, the efficiency was `r defficlo`.
+
+In conclusion we see results of people should take the Covid 19 vaccine if male or female, but do not take the vaccine if you are LGBTQ or a Druguser. 
+
+
+
+
 
 
 
