@@ -104,6 +104,9 @@ Females = filter(FinalDat,  sex == "F")
 Females = select(Females, -sex)
 ```
 
+
+## Females Graphical Description
+
 ```{r}
 dd2 <- FinalDat %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
@@ -162,6 +165,10 @@ print(femeffichi)
 ```{r}
 LGBTQ = filter(FinalData, LGBTQ == "gay")
 ```
+
+
+## LGBTQ Graphical Description
+
 
 ```{r}
 dd2 <- LGBTQ %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
