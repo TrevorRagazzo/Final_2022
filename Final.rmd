@@ -24,6 +24,13 @@ mutate(across(where(is.character), as.factor))
 
 
 
+
+
+# Introduction
+
+A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
+
+## Males
 ```{r}
 Males = filter(FinalDat,  sex == "M")
 ```
@@ -32,13 +39,7 @@ Males = filter(FinalDat,  sex == "M")
 Males = select(Males, -sex)
 ```
 
-
-
-# Introduction
-
-A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
-
-## Males
+## Males Graphical Results
 
 ```{r}
 dd2 <- FinalDat %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -211,4 +212,12 @@ This efficiency ratio of 13 means the vaccine was only 13% efficient. The confid
 
 
 ## Druggies
+
+
+```{r}
+LGBTQ = filter(FinalData, LGBTQ == "gay")
+```
+
+
+
 
