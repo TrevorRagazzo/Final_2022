@@ -68,6 +68,8 @@ colPerc(table1)
 This numerical table shows us a result of the people who took the placebo and got covid was 2.63% and the people with the vaccine was about 1.28%. Which is showing the vaccine to be effective. 
 
 
+## Male Inferential Results
+
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
@@ -135,6 +137,8 @@ colPerc(table2)
 From the numerical results we see that around 2.3% of the people who received the placebo actually got covid. While the people who received the covid vaccine only 1.62% got covid. We see that the vaccine seem to be working, almost 2 times better than the placebo.
 
 
+## Females Inferential Results
+
 ```{r}
 chisq.test(table2)
 chisqtestGC(table2)
@@ -194,6 +198,9 @@ colPerc(table3)
 ```
 
 From the numerical summaries we see that about 3% of LGBTQ that had the vaccine got covid, while the ones who took the placebo was only about .05%. 
+
+## LGBTQ Inferential Results
+
 
 ```{r}
 chisq.test(table3)
