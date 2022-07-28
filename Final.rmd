@@ -260,6 +260,21 @@ fishtestD
 
 We see from the Inferential Results that the drugusers that took the placebo were about .2 times less likely to get covid rather than the drugusers that took the vaccine. With this low P-Value we can determine that the placebo and the vaccine are indeed different and we couldnt get these results if they were the same. 
 
+## DrugUser Efficiency
+
+```{r}
+options(digits=1)
+Deffic=fishtestD$estimate/(1 + fishtestD$estimate)*100
+Defficlo=fishtestD$conf.int[1]/(1+fishtestD$conf.int[1])*100
+Deffichi=fishtestD$conf.int[2]/(1+fishtestD$conf.int[2])*100
+print(Deffic)
+print(Defficlo)
+print(Deffichi)
+```
+
+From the Efficiency we see that the vaccine is 15% effective. We see a confidence interval high of `r Deffichi` and a low of `r Defficlo`
+
+
 
 
 
