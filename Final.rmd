@@ -237,8 +237,14 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This barchart is showing results that the drugusers that took the vaccine was more likely to get covid rather than taking the placebo. About 85% of drug users that took the vaccine got covid and the people that ook the placebo was only 15% likely. 
 
+## DrugUser Numerical Results
 
+```{r}
+table4 <- xtabs(~infected + treatment, data=DrugUser)
+rowPerc(table4)
+colPerc(table4)
+```
 
-
+From the numerical results we see that 3% of drugusers that took the vaccin got covid. While only .6 % of drugusers that took the placebo got covid. From these results we see that with the vaccine you are more than 3 times more likely to get covid. 
 
 
