@@ -21,16 +21,12 @@ mutate(across(where(is.character), as.factor))
 ```
 
 
-
-
-
-
-
 # Introduction
 
 A new  preventative vaccine (covid91) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-## Males
+# Males
+
 ```{r}
 Males = filter(FinalDat,  sex == "M")
 ```
@@ -38,6 +34,7 @@ Males = filter(FinalDat,  sex == "M")
 ```{r}
 Males = select(Males, -sex)
 ```
+
 
 ## Males Graphical Results
 
@@ -57,6 +54,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 ```
   
  In this first graph we see it showing us that half of the participants took the covid 19 vacine and the other half took a placebo. With this information we get a result of 70% of the people that took the placebo got covid while 30% people with the vaccine got covid. We saw a greater result of people with covid that did not get the vaccine. 
+  
   
 ## Males Numerical Results
   
@@ -80,6 +78,7 @@ print(fishtestm)
 
 The fisher exact test is showing us that the participants that took the placebo is almost 2 times more likely to catch covid rather than the people who had the vaccine. With such a low P-value it means we cannot recreate this experiment with the vaccine and placebo being the same, and getting the results we have just observed. 
 
+
 ## Males Efficiency
 
 ```{r}
@@ -95,9 +94,7 @@ print(maleffichi)
 we see the confidence interval to be `r maleffichi` and the lower to be `r malefficlo`
 
 
-
-## Females
-
+# Females
 
 ```{r}
 Females = filter(FinalDat,  sex == "F")
@@ -127,6 +124,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This bar chart is showing us results of females that took a covid vaccine and those who took a placebo. With this information we get results of 60% of the people that took the placebo got covid, while the people with the vaccine only 40% got covid. 
 
+
 ## Females Numerical Results
 
 ```{r}
@@ -152,7 +150,6 @@ From this test we see that if you have taken the placebo you are 1.42 times more
 
 ## Females Efficiency
 
-
 ```{r}
 options(digits=1)
 femeffic=fishtestf$estimate/(1 + fishtestf$estimate)*100
@@ -162,13 +159,10 @@ print(femeffic)
 print(femefficlo)
 print(femeffichi)
 ```
+For the Females efficiency we see a high result of `r femeffichi` and the lowest result to be `r femefficlo`
 
 
-
-
-## LGBTQ
-
-
+# LGBTQ
 
 ```{r}
 LGBTQ = filter(FinalData, LGBTQ == "gay")
@@ -176,7 +170,6 @@ LGBTQ = filter(FinalData, LGBTQ == "gay")
 
 
 ## LGBTQ Graphical Description
-
 
 ```{r}
 dd2 <- LGBTQ %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
@@ -206,8 +199,8 @@ colPerc(table3)
 
 From the numerical summaries we see that about 3% of LGBTQ that had the vaccine got covid, while the ones who took the placebo was only about .05%. 
 
-## LGBTQ Inferential Results
 
+## LGBTQ Inferential Results
 
 ```{r}
 chisq.test(table3)
@@ -218,8 +211,8 @@ fishtestL
 
 We see the odd ration to be .1 this tells us that people who take the placebo has a .1% of catching covid. 
 
-## LGBTQ Efficiency
 
+## LGBTQ Efficiency
 
 ```{r}
 options(digits=1)
@@ -231,16 +224,15 @@ print(Lemefficlo)
 print(Lemeffichi)
 ```
 
-This efficiency ratio of 13 means the vaccine was only 13% efficient. The confidence ratio for the vaccine shows to be `r Lemefficlo` and the high end will be `r Lemeffichi`
+This efficiency ratio of 13 means the vaccine was only 13% efficient. The confidence ratio for the vaccine shows to be `r Lemeffichi` and the high end will be `r Lemefficlo`
 
 
-
-## Druggies
-
+# Druggies
 
 ```{r}
 DrugUser = filter(FinalData, DrugUser == "yes")
 ```
+
 
 ## DrugUser Graphical Description
 
@@ -261,6 +253,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This barchart is showing results that the drugusers that took the vaccine was more likely to get covid rather than taking the placebo. About 85% of drug users that took the vaccine got covid and the people that ook the placebo was only 15% likely. 
 
+
 ## DrugUser Numerical Results
 
 ```{r}
@@ -272,7 +265,6 @@ colPerc(table4)
 From the numerical results we see that 3% of drugusers that took the vaccin got covid. While only .6 % of drugusers that took the placebo got covid. From these results we see that with the vaccine you are more than 3 times more likely to get covid. 
 
 
-
 ## DrugUser Inferential Results
 
 ```{r}
@@ -282,12 +274,12 @@ fishtestD=fisher.test(table4)
 fishtestD
 ```
 
-We see from the Inferential Results that the drugusers that took the placebo were about .2 times less likely to get covid rather than the drugusers that took the vaccine. With this low P-Value we can determine that the placebo and the vaccine are indeed different and we couldnt get these results if they were the same. 
+We see from the Inferential Results that the drug users that took the placebo were about .2 times less likely to get covid rather than the drug users that took the vaccine. With this low P-Value we can determine that the placebo and the vaccine are indeed different and we couldn't get these results if they were the same. 
+
 
 ## DrugUser Efficiency
 
 ```{r}
-options(digits=1)
 Deffic=fishtestD$estimate/(1 + fishtestD$estimate)*100
 Defficlo=fishtestD$conf.int[1]/(1+fishtestD$conf.int[1])*100
 Deffichi=fishtestD$conf.int[2]/(1+fishtestD$conf.int[2])*100
@@ -296,12 +288,12 @@ print(Defficlo)
 print(Deffichi)
 ```
 
-From the Efficiency we see that the vaccine is 15% effective. We see a confidence interval high of `r Deffichi` and a low of `r Defficlo`
+In the DrugUsers we see a high efficiency of `r Deffichi` and a low efficiency at `r Defficlo`
 
 
-## Conclusion
+# Conclusion
 
-For the Covid19 vaccine for males was very effective. We can see those results of the vaccine by `r maleffic` this being the highest percentage in compared to Females, LGBTQ, and DrugUsers. We can also see similar results when compared to females by the vaccine was also very effective compared to the placebo. The female results are `r femeffic` effectiveness. Now if we compare the LGBTQ, the vaccine was not effective at all, we eventually saw better results from the placebo than we did the vaccine. The effectiveness we saw from the LQBTQ vaccinated people were `r leffic`, and this was the lowest performance from any group. We also see bad results in relation with DrugUsers, the efficiency was `r defficlo`.
+For the Covid 19 vaccine for males was very effective. We can see those results of the vaccine by `r maleffichi` this being the highest percentage in compared to Females, LGBTQ, and DrugUsers. We can also see similar results when compared to females by the vaccine was also very effective compared to the placebo. The female results are `r femeffichi` effectiveness. Now if we compare the LGBTQ, the vaccine was not effective at all, we eventually saw better results from the placebo than we did the vaccine. The effectiveness we saw from the LQBTQ vaccinated people was a high of `r Lemeffichi` , and this was the lowest performance from any group. We also see bad results in relation with Drug Users, the efficiency was `r Deffichi` .
 
 In conclusion we see results of people should take the Covid 19 vaccine if male or female, but do not take the vaccine if you are LGBTQ or a Druguser. 
 
